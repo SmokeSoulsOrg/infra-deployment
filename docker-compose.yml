@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   php-api-service:
     image: ghcr.io/smokesoulsorg/php-api-service:latest
