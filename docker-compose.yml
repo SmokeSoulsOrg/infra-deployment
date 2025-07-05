@@ -18,8 +18,10 @@ services:
     networks:
       - aylo
     depends_on:
-      - redis
-      - rabbitmq
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
     restart: unless-stopped
 
   mysql:
@@ -98,6 +100,11 @@ services:
     networks:
       - aylo
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 networks:
   aylo:
