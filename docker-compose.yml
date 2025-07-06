@@ -5,6 +5,7 @@ services:
       - "8080:9000"  # Laravel artisan serve
     volumes:
       - ./.envs/php-api-service.env:/var/www/html/.env
+      - shared-images:/images
     networks:
       - aylo
     depends_on:
@@ -15,6 +16,20 @@ services:
     image: ghcr.io/smokesoulsorg/php-feed-ingestor:latest
     volumes:
       - ./.envs/php-feed-ingestor.env:/var/www/html/.env
+    networks:
+      - aylo
+    depends_on:
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    restart: unless-stopped
+
+  php-image-worker:
+    image: ghcr.io/smokesoulsorg/php-image-worker:latest
+    volumes:
+      - ./.envs/php-image-worker.env:/var/www/html/.env
+      - shared-images:/images
     networks:
       - aylo
     depends_on:
@@ -111,6 +126,7 @@ networks:
     driver: bridge
 
 volumes:
+  shared-images:
   mysql_data:
     driver: local
   mysql_read_data:
