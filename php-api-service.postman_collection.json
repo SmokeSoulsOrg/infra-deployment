@@ -1,0 +1,624 @@
+{
+	"info": {
+		"_postman_id": "99354762-351f-4ab1-9937-dacfd5585342",
+		"name": "Pornstar API (Local)",
+		"description": "Postman collection for testing the Pornstar API locally.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37279136"
+	},
+	"item": [
+		{
+			"name": "Pornstars",
+			"item": [
+				{
+					"name": "GET all Pornstars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstars?page=1&per_page=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstars"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Retrieve a paginated list of records."
+					},
+					"response": []
+				},
+				{
+					"name": "GET single Pornstar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstars/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstars",
+								"1"
+							]
+						},
+						"description": "Retrieve a specific record by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "POST new Pornstar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"external_id\": \"abc125\",\n  \"name\": \"Jane Doe\",\n  \"link\": \"https://www.pornhub.com/pornstar/jane-doe\",\n  \"license\": \"REGULAR\",\n  \"wl_status\": true,\n  \"hair_color\": \"Brunette\",\n  \"ethnicity\": \"Asian\",\n  \"has_tattoos\": false,\n  \"has_piercings\": true,\n  \"breast_size\": 32,\n  \"breast_type\": \"B\",\n  \"gender\": \"female\",\n  \"orientation\": \"bisexual\",\n  \"age\": 27,\n  \"subscriptions\": 8200,\n  \"monthly_searches\": 305000,\n  \"views\": 1900000,\n  \"videos_count\": 35,\n  \"premium_videos_count\": 12,\n  \"white_label_video_count\": 22,\n  \"rank\": 88,\n  \"rank_premium\": 102,\n  \"rank_wl\": 91,\n  \"aliases\": [\n    { \"alias\": \"Janie\" },\n    { \"alias\": \"JD\" }\n  ],\n  \"thumbnails\": [\n    {\n      \"type\": \"pc\",\n      \"width\": 234,\n      \"height\": 344,\n      \"urls\": [\n        {\n          \"url\": \"https://ei.phncdn.com/pics/pornstars/thumb_9876.jpg\",\n          \"local_path\": \"/images/thumb_9876.jpg\"\n        }\n      ]\n    },\n    {\n      \"type\": \"mobile\",\n      \"width\": 234,\n      \"height\": 344,\n      \"urls\": [\n        {\n          \"url\": \"https://ei.phncdn.com/pics/pornstars/thumb_9877.jpg\",\n          \"local_path\": \"/images/thumb_9877.jpg\"\n        }\n      ]\n    }\n  ]\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstars",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstars"
+							]
+						},
+						"description": "Create a new record using the given JSON payload."
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update Pornstar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"external_id\": \"001\",\n  \"link\": \"https://test.com\",\n  \"name\": \"Jane Danger\",\n  \"has_tattoos\": true,\n  \"age\": 29,\n  \"aliases\": [\n    { \"alias\": \"JD\" },\n    { \"alias\": \"Danger Jane\" }\n  ],\n  \"thumbnails\": [\n    {\n      \"type\": \"pc\",\n      \"width\": 300,\n      \"height\": 400,\n      \"urls\": [\n        {\n          \"url\": \"https://ei.phncdn.com/pics/pornstars/thumb_edited1.jpg\",\n          \"local_path\": \"/images/thumb_edited1.jpg\"\n        }\n      ]\n    },\n    {\n      \"type\": \"tablet\",\n      \"width\": 400,\n      \"height\": 500,\n      \"urls\": [\n        {\n          \"url\": \"https://ei.phncdn.com/pics/pornstars/thumb_edited2.jpg\",\n          \"local_path\": \"/images/thumb_edited2.jpg\"\n        }\n      ]\n    }\n  ]\n}\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstars/8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstars",
+								"8"
+							]
+						},
+						"description": "Update an existing record by ID using the given JSON payload."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Pornstar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstars/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstars",
+								"2"
+							]
+						},
+						"description": "Delete an existing record by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Aliases",
+			"item": [
+				{
+					"name": "GET all Aliases",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-aliases?page=1&per_page=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-aliases"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Retrieve a paginated list of records."
+					},
+					"response": []
+				},
+				{
+					"name": "GET single Alias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-aliases/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-aliases",
+								"7"
+							]
+						},
+						"description": "Retrieve a specific record by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "POST new Alias",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pornstar_id\": 3,\r\n    \"alias\": \"Chris Joe\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-aliases",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-aliases"
+							]
+						},
+						"description": "Create a new record using the given JSON payload."
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update Alias",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pornstar_id\": 3,\r\n    \"alias\": \"Chris Joe\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-aliases/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-aliases",
+								"7"
+							]
+						},
+						"description": "Update an existing record by ID using the given JSON payload."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Alias",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-aliases/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-aliases",
+								"7"
+							]
+						},
+						"description": "Delete an existing record by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Thumbnails",
+			"item": [
+				{
+					"name": "GET all Thumbnails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnails?page=1&per_page=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnails"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Retrieve a paginated list of records."
+					},
+					"response": []
+				},
+				{
+					"name": "GET single Thumbnail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnails/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnails",
+								"5"
+							]
+						},
+						"description": "Retrieve a specific record by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "POST new Thumbnail",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pornstar_id\": 7,\r\n  \"type\": \"mobile\",\r\n  \"width\": 234,\r\n  \"height\": 344,\r\n  \"urls\": [\r\n    {\r\n      \"url\": \"https://ei.phncdn.com/pics/pornstars/thumb_9878.jpg\",\r\n      \"local_path\": \"/images/thumb_9878.jpg\"\r\n    },\r\n    {\r\n      \"url\": \"https://ei.phncdn.com/pics/pornstars/thumb_9879.jpg\",\r\n      \"local_path\": \"/images/thumb_9879.jpg\"\r\n    }\r\n  ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnails",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnails"
+							]
+						},
+						"description": "Create a new record using the given JSON payload."
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update Thumbnail",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pornstar_id\": 9,\r\n  \"type\": \"mobile\",\r\n  \"width\": 240,\r\n  \"height\": 340,\r\n  \"urls\": [\r\n    {\r\n      \"url\": \"https://ei.phncdn.com/pics/pornstars/thumb_9999.jpg\",\r\n      \"local_path\": \"/images/thumb_9999.jpg\"\r\n    }\r\n  ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnails/8",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnails",
+								"8"
+							]
+						},
+						"description": "Update an existing record by ID using the given JSON payload."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Thumbnail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnails/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnails",
+								"5"
+							]
+						},
+						"description": "Delete an existing record by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Thumbnail URLs",
+			"item": [
+				{
+					"name": "GET all Thumbnail URLs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnail-urls?page=1&per_page=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnail-urls"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Retrieve a paginated list of records."
+					},
+					"response": []
+				},
+				{
+					"name": "GET single Thumbnail URL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnail-urls/6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnail-urls",
+								"6"
+							]
+						},
+						"description": "Retrieve a specific record by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "POST new Thumbnail URL",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"thumbnail_id\": 6,\r\n        \"url\": \"https://via.placeholder.com/234x344.png/0088dd?text=velit\",\r\n        \"local_path\": null\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnail-urls",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnail-urls"
+							]
+						},
+						"description": "Create a new record using the given JSON payload."
+					},
+					"response": []
+				},
+				{
+					"name": "PUT update Thumbnail URL",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"thumbnail_id\": 6,\r\n        \"url\": \"https://via.placeholder.com/234x344.png/0088dd?text=velit\",\r\n        \"local_path\": null\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnail-urls/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnail-urls",
+								"7"
+							]
+						},
+						"description": "Update an existing record by ID using the given JSON payload."
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Thumbnail URL",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/v1/pornstar-thumbnail-urls/7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pornstar-thumbnail-urls",
+								"7"
+							]
+						},
+						"description": "Delete an existing record by ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"health"
+					]
+				},
+				"description": "Simple health check endpoint. Returns `{ status: 'ok' }` if API is alive."
+			},
+			"response": []
+		},
+		{
+			"name": "API Version",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/version",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"version"
+					]
+				},
+				"description": "Returns the current version of the API from the server config."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
