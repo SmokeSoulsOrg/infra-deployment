@@ -101,7 +101,7 @@ API endpoints.
 If something goes wrong, or you want to reset everything:
 
 ```bash
-docker-compose down -v
+docker-compose down -v && bash scripts/post-down.sh
 docker-compose up
 ```
 

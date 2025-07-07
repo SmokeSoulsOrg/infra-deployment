@@ -5,7 +5,7 @@ services:
       - "8080:9000"  # Laravel artisan serve
     volumes:
       - ./.envs/php-api-service.env:/var/www/html/.env
-      - shared-images:/pornstar-images
+      - shared-images:/var/www/html/storage/app/public/pornstar-images
     networks:
       - aylo
     depends_on:
@@ -29,7 +29,7 @@ services:
     image: ghcr.io/smokesoulsorg/php-image-worker:latest
     volumes:
       - ./.envs/php-image-worker.env:/var/www/html/.env
-      - shared-images:/pornstar-images
+      - shared-images:/var/www/html/storage/app/public/pornstar-images
     networks:
       - aylo
     depends_on:
